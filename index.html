@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Ronny Schadde – IT-Portfolio</title>
+    <title>Ronny Frevert – IT-Portfolio</title>
 </head>
 <body>
 
 <header>
     <div class="profile-image-container">
         <div class="profile-placeholder">Foto</div>
-        <!-- <img src="dein-foto.jpg" alt="Ronny Schadde" class="profile-img"> -->
+        <!-- <img src="dein-foto.jpg" alt="Ronny Frevert" class="profile-img"> -->
     </div>
 
-    <h1>Ronny Schadde</h1>
+    <h1>Ronny Frevert</h1>
     <p>Junior Cloud & System Administrator</p>
+
+    <div style="margin-top: 1.5rem;">
+        <a href="lebenslauf.pdf" class="contact-button" download>Lebenslauf (PDF) herunterladen</a>
+    </div>
 </header>
 
 <main>
@@ -72,6 +76,33 @@
             </div>
         </div>
     </section>
+
+    <!-- ZERTIFIZIERUNGEN & WEITERBILDUNG -->
+    <section id="certifications">
+        <h2>Zertifizierungen & Fokus</h2>
+        <div class="skills-grid">
+            <span class="skill-badge">Microsoft Azure Fundamentals (AZ-900)</span>
+            <span class="skill-badge">Microsoft Azure Administrator (AZ-104 in Vorbereitung)</span>
+            <span class="skill-badge">PowerShell Scripting Basics</span>
+        </div>
+    </section>
+
+    <!-- HOMELAB & INFRASTRUKTUR -->
+    <section id="homelab">
+        <h2>Mein Homelab</h2>
+        <p>In meiner privaten Testumgebung simuliere ich reale Unternehmensszenarien:</p>
+        <div class="projects-grid" style="margin-top: 1rem;">
+            <div class="project-card">
+                <h3>Virtuelle Umgebung & Active Directory</h3>
+                <p>Betrieb einer Windows Server 2022 Domäne mit aktivierten Gruppenrichtlinien (GPOs), DNS, DHCP und automatisierten Deployment-Skripten.</p>
+                <div class="project-tags">
+                    <span class="tag">Windows Server 2022</span>
+                    <span class="tag">Hyper-V</span>
+                    <span class="tag">GPO</span>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer>
@@ -81,7 +112,6 @@
     <div class="contact-links">
         <a href="mailto:frevert71@gmail.com" class="contact-button">E-Mail schreiben</a>
         <a href="https://github.com/Schadde-Ronny" target="_blank" rel="noopener noreferrer" class="contact-button secondary">GitHub Profil</a>
-        <a href="https://linkedin.com/in/dein-profil" target="_blank" rel="noopener noreferrer" class="contact-button secondary">LinkedIn</a>
     </div>
 
     <p class="copyright">&copy; 2026 – Gebaut mit HTML & CSS</p>
