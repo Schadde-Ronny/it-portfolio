@@ -1,0 +1,203 @@
+/* 1. Grundlegende Einstellungen & Schriftart */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #0f172a; /* Dunkler Tech-Hintergrund */
+    color: #f8fafc; /* Heller, gut lesbarer Text */
+    padding: 2rem 1rem;
+}
+
+/* 2. Zentrierter Container für den Inhalt */
+main, header {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 3. Header-Bereich */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    border-bottom: 1px solid #334155;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #38bdf8; /* Azure-Blau als Akzentfarbe */
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
+
+/* 4. Sektionen / Blöcke */
+section {
+    background-color: #1e293b; /* Leicht abgehobene Kacheln */
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #334155;
+}
+
+h2 {
+    color: #38bdf8;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 0.3rem;
+}
+
+/* 5. Listen-Styling für Skills */
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #334155;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+/* Styling für das Profilbild / den Platzhalter */
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-placeholder, .profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Macht das Bild kreisrund */
+    border: 3px solid #38bdf8; /* Blauer Akzentrahmen */
+}
+
+.profile-placeholder {
+    background-color: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Flexbox-Grid für die Skills */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap; /* Bricht automatisch in die nächste Zeile um */
+    gap: 0.75rem; /* Abstand zwischen den Kacheln */
+    margin-top: 1rem;
+}
+
+.skill-badge {
+    background-color: #0f172a;
+    color: #38bdf8;
+    border: 1px solid #38bdf8;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+/* Styling für die Projekt-Karten */
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.project-card {
+    background-color: #0f172a;
+    padding: 1.2rem;
+    border-radius: 6px;
+    border: 1px solid #334155;
+}
+
+.project-card h3 {
+    color: #f8fafc;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    color: #38bdf8;
+    background-color: rgba(56, 189, 248, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+/* Footer & Kontaktbereich */
+footer {
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+    padding: 2rem 1.5rem;
+    background-color: #1e293b;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    text-align: center;
+}
+
+footer p {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+/* Interaktive Buttons */
+.contact-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: #38bdf8;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.contact-button:hover {
+    background-color: #7dd3fc; /* Wird beim Drüberfahren leicht heller */
+}
+
+.contact-button.secondary {
+    background-color: transparent;
+    color: #38bdf8;
+    border: 1px solid #38bdf8;
+}
+
+.contact-button.secondary:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-bottom: 0;
+}
