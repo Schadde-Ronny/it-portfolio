@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (btnImpressum) {
         btnImpressum.addEventListener('click', function() {
-            window.location.href = 'Impressum.html'; // Öffnet die Impressum-Datei
+            window.location.href = 'Impressum.html'; // Mit großem I
         });
     }
 
     if (btnDatenschutz) {
         btnDatenschutz.addEventListener('click', function() {
-            window.location.href = 'Datenschutz.html'; // Öffnet die Datenschutz-Datei
+            window.location.href = 'Datenschutz.html'; // Mit großem D
         });
     }
 });
