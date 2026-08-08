@@ -300,3 +300,9 @@ footer p {
 .modal-content-geruest .contact-button:hover {
     transform: translateY(-1px);
 }
+
+/* Styling für den Zurück-Button auf den Unterseiten */
+.back-container {
+    margin-top: 2rem;
+    text-align: center;
+}
