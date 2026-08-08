@@ -302,7 +302,10 @@ footer p {
 }
 
 /* Styling für den Zurück-Button auf den Unterseiten */
+/* Zentrierter Zurück-Button auf den Unterseiten */
 .back-container {
     margin-top: 2rem;
-    text-align: center;
+    display: flex;
+    justify-content: center; /* Zentriert den Inhalt waagerecht */
+    width: 100%;
 }
