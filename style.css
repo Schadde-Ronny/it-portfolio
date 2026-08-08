@@ -201,3 +201,35 @@ footer p {
     color: #64748b;
     margin-bottom: 0;
 }
+/* 6. Interaktive Details & Hover-Effekte */
+
+/* Sanftes Anheben der Projektkarten */
+.project-card {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+    box-shadow: 0 10px 20px -10px rgba(56, 189, 248, 0.2);
+}
+
+/* Interaktives Feedback für Skill-Badges */
+.skill-badge {
+    transition: transform 0.15s ease, background-color 0.15s ease;
+    cursor: default;
+}
+
+.skill-badge:hover {
+    transform: scale(1.05);
+    background-color: rgba(56, 189, 248, 0.1);
+}
+
+/* Sanfter Bild-Glow beim Hover im Profilbereich */
+.profile-placeholder, .profile-img {
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-placeholder:hover, .profile-img:hover {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
