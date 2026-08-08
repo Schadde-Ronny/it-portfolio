@@ -25,3 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const btnImpressum = document.getElementById('btnImpressum');
+    const btnDatenschutz = document.getElementById('btnDatenschutz');
+
+    if (btnImpressum) {
+        btnImpressum.addEventListener('click', function() {
+            window.location.href = 'Impressum.html'; // Öffnet die Impressum-Datei
+        });
+    }
+
+    if (btnDatenschutz) {
+        btnDatenschutz.addEventListener('click', function() {
+            window.location.href = 'Datenschutz.html'; // Öffnet die Datenschutz-Datei
+        });
+    }
+});
