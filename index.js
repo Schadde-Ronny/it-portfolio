@@ -41,3 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const tag = document.getElementById("openPowerShellCode");
+    const modal = document.getElementById("codeModal");
+    const closeBtn = document.getElementById("closeCodeModal");
+
+    if (tag && modal && closeBtn) {
+        // Wenn man auf das "PowerShell"-Tag klickt
+        tag.addEventListener("click", () => {
+            modal.showModal();
+        });
+
+        // Wenn man auf "Schließen" klickt
+        closeBtn.addEventListener("click", () => {
+            modal.close();
+        });
+    }
+});

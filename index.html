@@ -55,15 +55,17 @@
         <h2>Projekte & Homelab</h2>
         
         <div class="projects-grid">
-            <!-- Projekt 1 -->
-            <div class="project-card">
-                <h3>PowerShell AD-Automation</h3>
-                <p>Ein PowerShell-Skript zur automatisierten Erstellung von Active-Directory-Benutzern aus einer CSV-Datei inklusive Rechtevergabe.</p>
-                <div class="project-tags">
-                    <span class="tag">PowerShell</span>
-                    <span class="tag">Active Directory</span>
-                </div>
-            </div>
+            <!-- In deiner Projektkarte -->
+<div class="project-card">
+    <h3>PowerShell AD-Automation</h3>
+    <p>Ein PowerShell-Skript zur automatisierten Erstellung von Active-Directory-Benutzern aus einer CSV-Datei inklusive Rechtevergabe.</p>
+    
+    <div class="project-tags">
+        <!-- Das PowerShell-Tag bekommt eine ID, damit man draufklicken kann -->
+        <span class="tag" id="openPowerShellCode" style="cursor: pointer;">PowerShell</span>
+        <span class="tag">Active Directory</span>
+    </div>
+</div>
 
             <!-- Projekt 2 -->
             <div class="project-card">
@@ -151,6 +153,20 @@
     </div>
 </div>
 
-
+<!-- Das Modal für den Code (kann ans Ende der Datei vor </body>) -->
+<dialog id="codeModal" class="project-modal">
+    <div class="modal-body">
+        <h2>PowerShell Skript-Auszug</h2>
+        <p>So sieht der Kern des AD-Automatisierungs-Skripts aus:</p>
+        
+        <pre><code>Import-Csv "users.csv" | ForEach-Object {
+    New-ADUser -Name $_.Name -SamAccountName $_.Username -Path "OU=Mitarbeiter,DC=firma,DC=local"
+}</code></pre>
+<div class="modal-buttons">
+    <a href="https://github.com/Schadde-Ronny/DEIN-REPO-NAME" target="_blank" rel="noopener noreferrer" class="contact-button">Zum GitHub-Repo</a>
+    <button id="closeCodeModal" class="contact-button secondary">Schließen</button>
+</div>
+    </div>
+</dialog>
 </body>
 </html>

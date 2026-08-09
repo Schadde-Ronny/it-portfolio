@@ -309,3 +309,71 @@ footer p {
     justify-content: center; /* Zentriert den Inhalt waagerecht */
     width: 100%;
 }
+F/* Das Modal-Fenster im Look deiner Website */
+dialog.project-modal {
+    background: #0f172a; /* Gleicher dunkler Hintergrund wie deine Karten */
+    border: 1px solid #334155; /* Dezenter Rahmen */
+    border-radius: 12px; /* Gleiche Abrundung wie deine Projektkarten */
+    padding: 2.5rem;
+    color: #fff;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Der dunkle, unscharfe Schleier im Hintergrund */
+dialog.project-modal::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+/* Überschrift und Text im Modal */
+dialog.project-modal h2 {
+    color: #38bdf8; /* Nutzt deine Akzentfarbe für Überschriften */
+    margin-bottom: 1rem;
+}
+
+dialog.project-modal p {
+    color: #94a3b8; /* Gleicher Textfarb-Ton wie in deinen Beschreibungen */
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+dialog.project-modal {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 2.5rem;
+    max-width: 100%;
+    width: 90%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* Wenn das Modal offen ist, soll es angezeigt werden */
+dialog.project-modal[open] {
+    display: block;
+}
+
+/* Der Backdrop-Schleier */
+dialog.project-modal::backdrop {
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(4px);
+}
+
+/* Textfarben im Modal absichern */
+dialog.project-modal p {
+    color: #94a3b8;
+}
+
+/* Hintergrund-Schleier abdunkeln */
+dialog.project-modal::backdrop {
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(4px);
+}
