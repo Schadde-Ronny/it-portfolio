@@ -1,379 +1,101 @@
-/* 1. Grundlegende Einstellungen & Schriftart */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #0f172a; /* Dunkler Tech-Hintergrund */
-    color: #f8fafc; /* Heller, gut lesbarer Text */
-    padding: 2rem 1rem;
-}
-
-/* 2. Zentrierter Container für den Inhalt */
-main, header {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* 3. Header-Bereich */
-header {
+.site-header {
+    background-color: #0f111a;
+    padding: 30px;
     text-align: center;
-    padding: 3rem 1rem;
-    border-bottom: 1px solid #334155;
-    margin-bottom: 2rem;
+    border-bottom: 2px solid #222;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    color: #38bdf8; /* Azure-Blau als Akzentfarbe */
-    margin-bottom: 0.5rem;
-}
-
-header p {
-    font-size: 1.2rem;
-    color: #94a3b8;
-}
-
-/* 4. Sektionen / Blöcke */
-section {
-    background-color: #1e293b; /* Leicht abgehobene Kacheln */
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    border: 1px solid #334155;
-}
-
-h2 {
-    color: #38bdf8;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #334155;
-    padding-bottom: 0.3rem;
-}
-
-/* 5. Listen-Styling für Skills */
-ul {
-    list-style-type: none;
-}
-
-li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #334155;
-}
-
-li:last-child {
-    border-bottom: none;
-}
-/* Styling für das Profilbild / den Platzhalter */
-.profile-image-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.profile-placeholder, .profile-img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%; /* Macht das Bild kreisrund */
-    border: 3px solid #38bdf8; /* Blauer Akzentrahmen */
-}
-
-.profile-placeholder {
-    background-color: #1e293b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #64748b;
-    font-size: 0.9rem;
-}
-
-/* Flexbox-Grid für die Skills */
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap; /* Bricht automatisch in die nächste Zeile um */
-    gap: 0.75rem; /* Abstand zwischen den Kacheln */
-    margin-top: 1rem;
-}
-
-.skill-badge {
-    background-color: #0f172a;
-    color: #38bdf8;
-    border: 1px solid #38bdf8;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-/* Styling für die Projekt-Karten */
-.projects-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    margin-top: 1rem;
-}
-
-.project-card {
-    background-color: #0f172a;
-    padding: 1.2rem;
-    border-radius: 6px;
-    border: 1px solid #334155;
-}
-
-.project-card h3 {
-    color: #f8fafc;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-}
-
-.project-card p {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    margin-bottom: 0.8rem;
-}
-
-.project-tags {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.tag {
-    font-size: 0.75rem;
-    color: #38bdf8;
-    background-color: rgba(56, 189, 248, 0.1);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-}
-/* Footer & Kontaktbereich */
-footer {
-    max-width: 800px;
-    margin: 2rem auto 0 auto;
-    padding: 2rem 1.5rem;
-    background-color: #1e293b;
-    border-radius: 8px;
-    border: 1px solid #334155;
+.profile-container {
+    margin-bottom: 20px;
     text-align: center;
 }
 
-footer p {
-    color: #94a3b8;
-    margin-bottom: 1.5rem;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-}
-
-/* Interaktive Buttons */
-.contact-button {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background-color: #38bdf8;
-    color: #0f172a;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-}
-
-.contact-button:hover {
-    background-color: #7dd3fc; /* Wird beim Drüberfahren leicht heller */
-}
-
-.contact-button.secondary {
-    background-color: transparent;
-    color: #38bdf8;
-    border: 1px solid #38bdf8;
-}
-
-.contact-button.secondary:hover {
-    background-color: rgba(56, 189, 248, 0.1);
-}
-
-.copyright {
-    font-size: 0.8rem;
-    color: #64748b;
-    margin-bottom: 0;
-}
-/* 6. Interaktive Details & Hover-Effekte */
-
-/* Sanftes Anheben der Projektkarten */
-.project-card {
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: #38bdf8;
-    box-shadow: 0 10px 20px -10px rgba(56, 189, 248, 0.2);
-}
-
-/* Interaktives Feedback für Skill-Badges */
-.skill-badge {
-    transition: transform 0.15s ease, background-color 0.15s ease;
-    cursor: default;
-}
-
-.skill-badge:hover {
-    transform: scale(1.05);
-    background-color: rgba(56, 189, 248, 0.1);
-}
-
-/* Sanfter Bild-Glow beim Hover im Profilbereich */
-.profile-placeholder, .profile-img {
-    transition: box-shadow 0.3s ease;
-}
-
-.profile-placeholder:hover, .profile-img:hover {
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-}
-
-/* Zentriertes Modal-Overlay */
-#legalModal {
-    display: flex; /* TESTWEISE auf flex gestellt, damit du es siehst */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(4px);
-    z-index: 1000;
-    
-    /* Perfekte Zentrierung */
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-.modal-banner h2 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: #38bdf8;
-}
-
-.modal-banner p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #94a3b8;
-}
-
-.modal-hint {
-    font-size: 0.85rem;
-    color: #64748b;
-}
-
-.modal-btn-container {
-    margin-top: 1.5rem;
-}
-
-.modal-actions-grid {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-}
-
-.modal-action-btn {
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover; /* Sorgt dafür, dass das Bild nicht verzerrt wird */
+    border: 2px solid #00ffff;
     cursor: pointer;
-    border: none;
-    flex: 1;
-    min-width: 130px;
-    font-size: 0.85rem;
-    padding: 0.6rem 1rem;
+    transition: all 0.3s ease;
 }
 
-/* Spezielles Styling für die Buttons im Impressum/Datenschutz-Popup (optional) */
-.modal-content-geruest .contact-button {
-    font-size: 0.9rem;
-    padding: 0.7rem 1rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+.profile-pic:hover {
+    box-shadow: 0 0 20px #00ffff;
+    transform: scale(1.05); /* Zieht sich beim Hover minimal größer */
 }
 
-/* Hover-Effekt für die Buttons im Modal */
-.modal-content-geruest .contact-button:hover {
-    transform: translateY(-1px);
-}
-
-/* Styling für den Zurück-Button auf den Unterseiten */
-/* Zentrierter Zurück-Button auf den Unterseiten */
-.back-container {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center; /* Zentriert den Inhalt waagerecht */
-    width: 100%;
-}
-F/* Das Modal-Fenster im Look deiner Website */
-dialog.project-modal {
-    background: #0f172a; /* Gleicher dunkler Hintergrund wie deine Karten */
-    border: 1px solid #334155; /* Dezenter Rahmen */
-    border-radius: 12px; /* Gleiche Abrundung wie deine Projektkarten */
-    padding: 2.5rem;
-    color: #fff;
+.header-interactive-area {
+    background: #151823;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #333;
     max-width: 600px;
-    width: 90%;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Der dunkle, unscharfe Schleier im Hintergrund */
-dialog.project-modal::backdrop {
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(4px);
+/* HOVER-EFFEKT: Leuchtet auf und öffnet sich leicht, solange die Maus drüber ist */
+.header-interactive-area:hover {
+    border-color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
 }
 
-/* Überschrift und Text im Modal */
-dialog.project-modal h2 {
-    color: #38bdf8; /* Nutzt deine Akzentfarbe für Überschriften */
-    margin-bottom: 1rem;
+.header-interactive-area:hover .trigger-label {
+    color: #00ffff;
 }
 
-dialog.project-modal p {
-    color: #94a3b8; /* Gleicher Textfarb-Ton wie in deinen Beschreibungen */
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+.trigger-label {
+    color: #888;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
-dialog.project-modal {
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #0f172a;
-    color: #f8fafc;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 2.5rem;
-    max-width: 100%;
-    width: 90%;
-    box-sizing: border-box;
-    z-index: 1000;
+/* Versteckter Zustand standardmäßig */
+.hidden-docs-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
 }
 
-/* Wenn das Modal offen ist, soll es angezeigt werden */
-dialog.project-modal[open] {
-    display: block;
+/* Entweder öffnet es sich per HOVER ODER wenn per Klick die Klasse ".active" gesetzt wurde */
+.header-interactive-area:hover .hidden-docs-container,
+.header-interactive-area.active .hidden-docs-container {
+    max-height: 150px;
+    opacity: 1;
+    margin-top: 15px;
 }
 
-/* Der Backdrop-Schleier */
-dialog.project-modal::backdrop {
-    background: rgba(2, 6, 23, 0.85);
-    backdrop-filter: blur(4px);
+/* Wenn per Klick eingerastet (aktiv) */
+.header-interactive-area.active {
+    border-color: #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
 }
 
-/* Textfarben im Modal absichern */
-dialog.project-modal p {
-    color: #94a3b8;
+.header-interactive-area.active .trigger-label {
+    color: #00ffff;
 }
 
-/* Hintergrund-Schleier abdunkeln */
-dialog.project-modal::backdrop {
-    background: rgba(2, 6, 23, 0.85);
-    backdrop-filter: blur(4px);
+/* Neon-Buttons */
+.neon-btn {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #00ffff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.neon-btn:hover {
+    background-color: #00ffff;
+    color: #0f111a;
+    box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
 }

@@ -1,172 +1,38 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- Favicon für den Browser-Tab -->
-    <link rel="icon" type="image/png" href="server.png">
-    <script src="index.js"></script>
-    <title>Ronny Frevert – IT-Portfolio</title>
-    <!-- Open Graph / Social Media Vorschau -->
-    <meta property="og:title" content="Ronny Frevert | IT-Portfolio">
-    <meta property="og:description" content="Cloud, Netzwerke & IT-Infrastruktur – Einblick in meine Projekte und Kompetenzen.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://schadde-ronny.github.io/it-portfolio/">
-    <!-- Optional: Wenn du ein Bild als Preview möchtest, lege ein 'preview.jpg' in deinen Ordner -->
-    <meta property="og:image" content="https://schadde-ronny.github.io/it-portfolio/preview.jpg">
+    <script src="index.js" defer></script>
+    <title>Document</title>
 </head>
 <body>
+<header class="site-header">
+    <!-- Profilbild -->
+<div class="profile-container">
+    <img src="Ronny.png" alt="Profilbild" id="profileImg" class="profile-pic">
+</div>
 
-<header>
-    <div class="profile-image-container">
-        <img src="Ronny.png" alt="Ronny Frevert" class="profile-img"> 
-    </div>
-
-    <h1>Ronny Frevert</h1>
-    <p>Junior Cloud & System Administrator</p>
-
-    <div class="contact-links" style="margin-top: 1.5rem;">
-        <a href="lebenslauf.pdf" class="contact-button" download>Lebenslauf (PDF)</a>
-        <a href="Arbeitszeugnis.pdf" class="contact-button" download>Arbeitszeugnis (PDF)</a>
+    <!-- Interaktiver Bereich (jetzt klickbar) -->
+    <div class="header-interactive-area" id="docToggleArea">
+        <div class="trigger-label">Dokumente anzeigen (Klicken)</div>
+        
+        <!-- Die Boxen, die nach dem Klick offen bleiben -->
+        <div class="hidden-docs-container" id="docContainer">
+            <a href="lebenslauf.pdf" target="_blank" class="neon-btn">Lebenslauf.PDF</a>
+            <a href="arbeitszeugnis.pdf" target="_blank" class="neon-btn">Arbeitszeugnis.PDF</a>
+            <a href="dci-zertifikat.pdf" target="_blank" class="neon-btn">DCI Zertifikat.PDF</a>
+        </div>
     </div>
 </header>
 
-<main>
-    <section id="about">
-        <h2>Über mich</h2>
-        <p>Praxisorientierter IT-Administrator mit Fokus auf Automation, PowerShell und Cloud-Infrastrukturen.</p>
-    </section>
+    <main>
+        <p>This is a sample paragraph of text on my website. Here you can find various resources and information.</p> 
+    </main>
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p> 
+    </footer>
 
-    <section id="skills">
-        <h2>Skills & Technologien</h2>
-        <div class="skills-grid">
-            <span class="skill-badge">Windows Server</span>
-            <span class="skill-badge">Active Directory</span>
-            <span class="skill-badge">PowerShell</span>
-            <span class="skill-badge">Azure (AZ-104 prep)</span>
-            <span class="skill-badge">Networking (DNS/DHCP)</span>
-            <span class="skill-badge">HTML / CSS</span>
-            <span class="skill-badge">Git & GitHub</span>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projekte & Homelab</h2>
-        
-        <div class="projects-grid">
-            <!-- In deiner Projektkarte -->
-<div class="project-card">
-    <h3>PowerShell AD-Automation</h3>
-    <p>Ein PowerShell-Skript zur automatisierten Erstellung von Active-Directory-Benutzern aus einer CSV-Datei inklusive Rechtevergabe.</p>
-    
-    <div class="project-tags">
-        <!-- Das PowerShell-Tag bekommt eine ID, damit man draufklicken kann -->
-        <span class="tag" id="openPowerShellCode" style="cursor: pointer;">PowerShell</span>
-        <span class="tag">Active Directory</span>
-    </div>
-</div>
-
-            <!-- Projekt 2 -->
-            <div class="project-card">
-                <h3>Azure Testumgebung (AZ-104)</h3>
-                <p>Aufbau einer hybriden Cloud-Infrastruktur mit Azure Virtual Networks, Virtual Machines und Entra ID zum Testen von Sicherheitsrichtlinien.</p>
-                <div class="project-tags">
-                    <span class="tag">Azure</span>
-                    <span class="tag">Networking</span>
-                </div>
-            </div>
-
-            <!-- Projekt 3 -->
-            <div class="project-card">
-                <h3>IT-Portfolio Website</h3>
-                <p>Meine persönliche Admin-Visitenkarte, eigenhändig in strukturiertem HTML5 und modernem CSS3 umgesetzt.</p>
-                <div class="project-tags">
-                    <span class="tag">HTML5</span>
-                    <span class="tag">CSS3</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ZERTIFIZIERUNGEN & WEITERBILDUNG -->
-    <section id="certifications">
-        <h2>Zertifizierungen & Fokus</h2>
-        <div class="skills-grid">
-            <span class="skill-badge">Microsoft Azure Fundamentals (AZ-900)</span>
-            <span class="skill-badge">Microsoft Azure Administrator (AZ-104 in Vorbereitung)</span>
-            <span class="skill-badge">PowerShell Scripting Basics</span>
-        </div>
-    </section>
-
-    <!-- HOMELAB & INFRASTRUKTUR -->
-    <section id="homelab">
-        <h2>Mein Homelab</h2>
-        <p>In meiner privaten Testumgebung simuliere ich reale Unternehmensszenarien:</p>
-        <div class="projects-grid" style="margin-top: 1rem;">
-            <div class="project-card">
-                <h3>Virtuelle Umgebung & Active Directory</h3>
-                <p>Betrieb einer Windows Server 2022 Domäne mit aktivierten Gruppenrichtlinien (GPOs), DNS, DHCP und automatisierten Deployment-Skripten.</p>
-                <div class="project-tags">
-                    <span class="tag">Windows Server 2022</span>
-                    <span class="tag">Hyper-V</span>
-                    <span class="tag">GPO</span>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer>
-    <h2>Kontakt</h2>
-    <p>Interesse an einer Zusammenarbeit oder Fragen zu meinen Projekten? Ich freue mich über eine Nachricht!</p>
-    
-    <div class="contact-links">
-        <a href="mailto:frevert71@gmail.com" class="contact-button">E-Mail schreiben</a>
-        <a href="https://github.com/Schadde-Ronny" target="_blank" rel="noopener noreferrer" class="contact-button secondary">GitHub Profil</a>
-    </div>
-
-    <p class="copyright">&copy; 2026 – Gebaut mit HTML, CSS und Javascript</p>
-</footer>
-
-<div id="legalModal" class="modal-overlay">
-    <div class="modal-content-geruest modal-banner">
-        <h2>Hinweis zum Datenschutz & Impressum</h2>
-        <p>
-            Diese Website dient der Vorstellung meiner Person für Bewerbungszwecke. Es werden keine eigenen Tracking-Cookies eingesetzt. 
-            Durch das Klicken auf <strong>„Akzeptieren“</strong> schließen Sie diesen Hinweis.
-        </p>
-        <p class="modal-hint">
-            Weitere Details finden Sie in den jeweiligen rechtlichen Angaben.
-        </p>
-
-        <!-- Akzeptieren-Button -->
-        <div class="modal-btn-container">
-            <button id="acceptModal" class="contact-button" style="cursor: pointer; border: none; width: 100%; text-align: center;">Akzeptieren</button>
-        </div>
-
-        <!-- Die beiden Anzeige-Buttons für Impressum und Datenschutz -->
-        <div class="modal-actions-grid">
-    <button id="btnImpressum" class="contact-button secondary modal-action-btn">Impressum anzeigen</button>
-    <button id="btnDatenschutz" class="contact-button secondary modal-action-btn">Datenschutz anzeigen</button>
-</div>
-    </div>
-</div>
-
-<!-- Das Modal für den Code (kann ans Ende der Datei vor </body>) -->
-<dialog id="codeModal" class="project-modal">
-    <div class="modal-body">
-        <h2>PowerShell Skript-Auszug</h2>
-        <p>So sieht der Kern des AD-Automatisierungs-Skripts aus:</p>
-        
-        <pre><code>Import-Csv "users.csv" | ForEach-Object {
-    New-ADUser -Name $_.Name -SamAccountName $_.Username -Path "OU=Mitarbeiter,DC=firma,DC=local"
-}</code></pre>
-<div class="modal-buttons">
-    <a href="https://github.com/Schadde-Ronny/DEIN-REPO-NAME" target="_blank" rel="noopener noreferrer" class="contact-button">Zum GitHub-Repo</a>
-    <button id="closeCodeModal" class="contact-button secondary">Schließen</button>
-</div>
-    </div>
-</dialog>
 </body>
 </html>

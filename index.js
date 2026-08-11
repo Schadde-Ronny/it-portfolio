@@ -1,60 +1,57 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('legalModal');
-    const openBtn = document.getElementById('openModal');
-    const acceptBtn = document.getElementById('acceptModal');
-
-    // 1. Öffnen
-    if (openBtn) {
-        openBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            modal.style.display = 'flex'; // Hier wird es sichtbar gemacht
-        });
-    }
-
-    // 2. Schließen durch Akzeptieren
-    if (acceptBtn) {
-        acceptBtn.addEventListener('click', function() {
-            modal.style.display = 'none'; // Hier wird es wieder unsichtbar gemacht
-        });
-    }
-
-    // 3. Schließen durch Hintergrund-Klick
-    window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    const btnImpressum = document.getElementById('btnImpressum');
-    const btnDatenschutz = document.getElementById('btnDatenschutz');
-
-    if (btnImpressum) {
-        btnImpressum.addEventListener('click', function() {
-            window.location.href = 'Impressum.html'; // Mit großem I
-        });
-    }
-
-    if (btnDatenschutz) {
-        btnDatenschutz.addEventListener('click', function() {
-            window.location.href = 'Datenschutz.html'; // Mit großem D
-        });
-    }
-});
 document.addEventListener("DOMContentLoaded", () => {
-    const tag = document.getElementById("openPowerShellCode");
-    const modal = document.getElementById("codeModal");
-    const closeBtn = document.getElementById("closeCodeModal");
+    const toggleArea = document.getElementById("docToggleArea");
 
-    if (tag && modal && closeBtn) {
-        // Wenn man auf das "PowerShell"-Tag klickt
-        tag.addEventListener("click", () => {
-            modal.showModal();
+    if (toggleArea) {
+        // 1. Klick auf den Header-Bereich: Öffnen / Schließen umschalten
+        toggleArea.addEventListener("click", (event) => {
+            // Verhindert, dass der Klick direkt das "Außen-Klick"-Ereignis auslöst
+            event.stopPropagation();
+            toggleArea.classList.toggle("active");
         });
 
-        // Wenn man auf "Schließen" klickt
-        closeBtn.addEventListener("click", () => {
-            modal.close();
+        // 2. Klick irgendwo anders auf der Seite (z.B. Main oder Footer) schließt das Menü
+        document.addEventListener("click", (event) => {
+            // Prüfen, ob der Klick außerhalb des toggleArea-Bereichs war
+            if (!toggleArea.contains(event.target)) {
+                toggleArea.classList.remove("active");
+            }
+        });
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const headerArea = document.getElementById("docToggleArea"); // Dein Header-Interaktionsbereich
+    const mainArea = document.querySelector("main"); // Dein Main-Bereich
+    const profileImg = document.getElementById("profileImg");
+
+    // Trage hier deine genauen Dateinamen ein:
+    const normalImg = "Ronny.png"; // Dein Standard-Bild (für den Main-Bereich)
+    const hoverImg = "Ronny2.png";   // Dein zweites Bild (für den Header-Bereich)
+
+    if (headerArea && profileImg) {
+        // 1. Wenn man im Header-Bereich interagiert (Maus drüber oder Klick) -> Zweites Bild
+        headerArea.addEventListener("mouseenter", () => {
+            profileImg.src = hoverImg;
+        });
+
+        headerArea.addEventListener("click", () => {
+            profileImg.src = hoverImg;
+        });
+    }
+
+    if (mainArea && profileImg) {
+        // 2. Sobald man im Main-Bereich interagiert (Klick oder Maus rein) -> Zurück zum ersten Bild
+        mainArea.addEventListener("click", () => {
+            profileImg.src = normalImg;
+            // Falls der Header dabei auch zugehen soll:
+            if (headerArea) {
+                headerArea.classList.remove("active");
+            }
+        });
+
+        mainArea.addEventListener("mouseenter", () => {
+            profileImg.src = normalImg;
         });
     }
 });
