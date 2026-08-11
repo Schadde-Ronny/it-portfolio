@@ -52,21 +52,23 @@
     transition: color 0.3s ease;
 }
 
-/* Versteckter Zustand standardmäßig */
+/* Der Container passt sich nun automatisch an den Inhalt an */
 .hidden-docs-container {
     display: flex;
     justify-content: center;
     gap: 15px;
+    flex-wrap: wrap; /* Wichtig für Smartphones: Buttons springen bei Platzmangel in die nächste Zeile */
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
 }
 
-/* Entweder öffnet es sich per HOVER ODER wenn per Klick die Klasse ".active" gesetzt wurde */
+/* Wenn geöffnet, erhöhen wir den Wert für max-height deutlich, 
+   damit auch auf kleinen Bildschirmen nichts abgeschnitten wird */
 .header-interactive-area:hover .hidden-docs-container,
 .header-interactive-area.active .hidden-docs-container {
-    max-height: 150px;
+    max-height: 300px; /* Groß genug gemacht, damit alle drei Buttons locker reinpassen */
     opacity: 1;
     margin-top: 15px;
 }
