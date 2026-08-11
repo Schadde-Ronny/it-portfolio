@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 <body>
@@ -16,20 +17,145 @@
 
     <!-- Interaktiver Bereich (jetzt klickbar) -->
     <div class="header-interactive-area" id="docToggleArea">
-        <div class="trigger-label">Dokumente anzeigen (Klicken)</div>
+        <div class="trigger-label">Dokumente anzeigen</div>
         
         <!-- Die Boxen, die nach dem Klick offen bleiben -->
         <div class="hidden-docs-container" id="docContainer">
-            <a href="lebenslauf.pdf" target="_blank" class="neon-btn">Lebenslauf.PDF</a>
-            <a href="Arbeitszeugnis.pdf" target="_blank" class="neon-btn">Arbeitszeugnis.PDF</a>
-            <a href="dci-zertifikat.pdf" target="_blank" class="neon-btn">DCI Zertifikat.PDF</a>
+            <a href="lebenslauf.pdf" download class="neon-btn">Lebenslauf.PDF</a>
+            <a href="Arbeitszeugnis.pdf" download class="neon-btn">Arbeitszeugnis.PDF</a>
+            <a href="DCI Zertifikat Ronny Frevert.pdf" download class="neon-btn">DCI Zertifikat.PDF</a>
         </div>
     </div>
 </header>
 
-    <main>
-        <p>This is a sample paragraph of text on my website. Here you can find various resources and information.</p> 
-    </main>
+<!-- Der Hauptbereich deiner Seite -->
+<main class="main-content">
+    <!-- 1. Box: Ausbildung -->
+    <article class="career-box">
+        <div class="box-icon">
+            <i class="fas fa-network-wired"></i>
+        </div>
+        <h3>AUSBILDUNG</h3>
+        <p class="subtitle">Daten- & Telekommunikation</p>
+        
+        <ul class="details-list">
+            <li class="has-dropdown">
+                <div class="item-header">Netzwerktechnik</div>
+                <div class="item-details">
+                    <ul>
+                        <li>Cisco Router & Switche</li>
+                        <li>VPN & Firewalls</li>
+                        <li>Glasfaser-Technik</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-dropdown">
+                <div class="item-header">Hardware-Grundlagen</div>
+                <div class="item-details">
+                    <ul>
+                        <li>PC-Komponenten & Montage</li>
+                        <li>Fehlerdiagnose & Troubleshooting</li>
+                        <li>Peripheriegeräte & Anschlüsse</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-dropdown">
+                <div class="item-header">Telekommunikationssysteme</div>
+                <div class="item-details">
+                    <ul>
+                        <li>VoIP & IP-Telephonie</li>
+                        <li>Telefonanlagen-Konfiguration</li>
+                        <li>Übertragungsstandards & ISDN/DSL</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </article>
+
+    <!-- 2. Box: Full-Stack -->
+    <article class="career-box">
+        <div class="box-icon">
+            <i class="fas fa-code"></i>
+        </div>
+        <h3>FULL-STACK</h3>
+        <p class="subtitle">Webentwickler (DCI)</p>
+
+        <ul class="details-list">
+            <li class="has-dropdown">
+                <div class="item-header">Frontend-Entwicklung</div>
+                <div class="item-details">
+                    <ul>
+                        <li>HTML5, CSS3 & Modern JS (ES6+)</li>
+                        <li>React.js & Komponentendesign</li>
+                        <li>Responsive Design & UI/UX</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-dropdown">
+                <div class="item-header">Backend-Entwicklung</div>
+                <div class="item-details">
+                    <ul>
+                        <li>Node.js & Express</li>
+                        <li>RESTful APIs</li>
+                        <li>Authentifizierung (JWT, OAuth)</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-dropdown">
+                <div class="item-header">Datenbanken & Tools</div>
+                <div class="item-details">
+                    <ul>
+                        <li>PostgreSQL / MySQL</li>
+                        <li>Git & Versionskontrolle</li>
+                        <li>Deployment (Vercel/Heroku)</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </article>
+
+    <!-- 3. Box: Systemadministrator -->
+    <article class="career-box">
+        <div class="box-icon">
+            <i class="fas fa-server"></i>
+        </div>
+        <h3>SYSTEMADMINISTRATOR</h3>
+        <p class="subtitle">Weiterbildung (Aktuell)</p>
+
+        <ul class="details-list">
+            <li class="has-dropdown">
+                <div class="item-header">Linux / Windows Server</div>
+                <div class="item-details">
+                    <ul>
+                        <li>Server-Administration & CLI</li>
+                        <li>Active Directory & Berechtigungen</li>
+                        <li>Shell-Scripting & Automation</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-dropdown">
+                <div class="item-header">Infrastruktur & Cloud</div>
+                <div class="item-details">
+                    <ul>
+                        <li>DNS, DHCP, Routing & Services</li>
+                        <li>Cloud-Dienste & Architektur</li>
+                        <li>Monitoring & Backup-Strategien</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="has-dropdown">
+                <div class="item-header">Virtualisierung</div>
+                <div class="item-details">
+                    <ul>
+                        <li>VMware ESXi & Hyper-V</li>
+                        <li>Containerisierung (Docker Grundlagen)</li>
+                        <li>Ressourcen-Management & Snapshots</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </article>
+</main>
     <footer>
         <p>&copy; 2024 My Website. All rights reserved.</p> 
     </footer>

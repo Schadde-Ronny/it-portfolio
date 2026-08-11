@@ -1,3 +1,11 @@
+body {
+    background-color: #0b131d; /* Ein sehr dunkles Tech-Blau/Grau als Basis */
+    /* Optional: Falls du ein Hintergrundmuster hast, kommt es hier rein */
+}
+
+
+/*Headerbereich (docToggleArea) öffnen / schließen */
+
 .site-header {
     background-color: #0f111a;
     padding: 30px;
@@ -47,7 +55,7 @@
 }
 
 .trigger-label {
-    color: #888;
+    color: #00ffff;
     font-size: 0.9rem;
     transition: color 0.3s ease;
 }
@@ -100,4 +108,135 @@
     background-color: #00ffff;
     color: #0f111a;
     box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+}
+/*Headerbereich (docToggleArea) öffnen / schließen */
+
+/* Main Bereich */
+/* Grund-Styling für den Main-Bereich */
+.main-content {
+    display: flex; /* Ordnet die Kinder (Boxen) nebeneinander an */
+    justify-content: center; /* Zentriert die Boxen auf der Seite */
+    gap: 30px; /* Abstand zwischen den Boxen */
+    padding: 50px 20px;
+    flex-wrap: wrap; /* Damit sie auf Handys untereinander rutschen */
+    max-width: 1200px; /* Begrenzt die Breite auf großen Bildschirmen */
+    margin: 0 auto; /* Zentriert den gesamten Container */
+}
+
+/* Styling für jede einzelne Karriere-Box */
+.career-box {
+    flex: 1; /* Jede Box nimmt gleich viel Platz ein */
+    min-width: 300px; /* Mindestbreite, damit sie auf kleinen Screens nicht zu schmal werden */
+    background-color: rgba(20, 30, 48, 0.7); /* Dunkler, leicht transparenter Hintergrund */
+    border: 2px solid #00ffff; /* Neon-Rahmen */
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Für Hover-Effekte */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hover-Effekt: Die Box hebt sich leicht ab */
+.career-box:hover {
+    transform: translateY(-10px); /* Bewegt die Box leicht nach oben */
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3); /* Stärkerer Neon-Schatten */
+}
+
+/* Styling für das Icon in der Box */
+.box-icon {
+    font-size: 3rem;
+    color: #00ffff;
+    margin-bottom: 20px;
+}
+
+/* Die Überschriften in den Boxen */
+.career-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Der Untertitel (z.B. DCI) */
+.career-box .subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Die Liste (Stichpunkte) */
+.details-list {
+    list-style: none; /* Entfernt die Standard-Listenpunkte */
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.details-list li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+    color: #00ffff;
+}
+
+/* Eigene Listenpunkte im Neon-Style */
+.details-list > li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: #00ffff;
+    font-weight: bold;
+}
+.item-header {
+    cursor: pointer;
+    color: #00ffff;
+}
+
+.item-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(0, 0, 0, 0.5); /* Deutlich dunklerer Hintergrund */
+    border-left: 2px solid #00ffff; /* Kleine Neon-Markierung an der Seite */
+    border-radius: 0 4px 4px 0;
+    margin-top: 8px;
+}
+
+.item-details ul {
+    list-style: none;
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    color: #00ffff; /* Klarer weißer Text oder #00ffff für Neon */
+}
+
+.item-details li {
+    padding: 4px 0;
+    color: #00ffff; /* Die Unterpunkte in hellem Neon-Türkis absetzen */
+}
+.career-box {
+    /* 1. Extrem transparentes Türkis (der letzte Wert '0.05' macht es fast unsichtbar) */
+    background-color: rgba(0, 255, 255, 0.05); 
+    
+    /* 2. Der Glas-Effekt: Verwischt alles, was hinter der Box liegt */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Wichtig für Safari/Apple-Browser */
+    
+    /* 3. Der scharfe Neon-Rahmen und das Leuchten */
+    border: 1px solid rgba(0, 255, 255, 0.6);
+    box-shadow: 
+        0 0 15px rgba(0, 255, 255, 0.3),
+        inset 0 0 15px rgba(0, 255, 255, 0.1);
+        
+    border-radius: 15px;
+    padding: 30px;
+}
+/* Wenn das Listenelement die Klasse .active bekommt, klappt das Menü auf */
+.has-dropdown.active .item-details {
+    max-height: 250px; /* Hoch genug, damit alle Unterpunkte reinpassen */
 }

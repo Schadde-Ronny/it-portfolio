@@ -1,3 +1,5 @@
+// Headerbereich (docToggleArea) öffnen / schließen
+
 document.addEventListener("DOMContentLoaded", () => {
     const toggleArea = document.getElementById("docToggleArea");
 
@@ -55,3 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// Headerbereich (docToggleArea) öffnen / schließen
+
+// Main Bereich
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.has-dropdown .item-header').forEach(header => {
+        header.addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    });
+});
+console.log("TEST: JS-Datei wird geladen!");
