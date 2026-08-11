@@ -7,10 +7,22 @@ body {
 /*Headerbereich (docToggleArea) öffnen / schließen */
 
 .site-header {
-    background-color: #0f111a;
+    /* Gleicher transparenter Türkis-Hintergrund und Glas-Effekt wie im Main-Bereich */
+    background-color: rgba(0, 255, 255, 0.05); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Neon-Rahmen und Schatten */
+    border: 1px solid rgba(0, 255, 255, 0.6);
+    box-shadow: 
+        0 0 15px rgba(0, 255, 255, 0.3),
+        inset 0 0 15px rgba(0, 255, 255, 0.1);
+        
+    border-radius: 15px;
     padding: 30px;
     text-align: center;
-    border-bottom: 2px solid #222;
+    max-width: 1200px;
+    margin: 20px auto; /* Zentriert mit etwas Abstand zum Rand */
 }
 
 .profile-container {
@@ -34,10 +46,11 @@ body {
 }
 
 .header-interactive-area {
-    background: #151823;
+    /* Den alten dunklen Kasten-Hintergrund durch den Glas-Look ersetzen oder anpassen */
+    background: rgba(0, 0, 0, 0.3);
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid #333;
+    border: 1px solid rgba(0, 255, 255, 0.3);
     max-width: 600px;
     margin: 0 auto;
     cursor: pointer;
@@ -47,7 +60,11 @@ body {
 /* HOVER-EFFEKT: Leuchtet auf und öffnet sich leicht, solange die Maus drüber ist */
 .header-interactive-area:hover {
     border-color: #00ffff;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+.header-interactive-area.active {
+    border-color: #00ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
 .header-interactive-area:hover .trigger-label {
