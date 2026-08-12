@@ -332,6 +332,44 @@ body {
     color: #00ffff;
     margin-top: 20px;
 }
+@media (max-width: 600px) {
+    /* Den Footer-Bereich vor dem Überlaufen schützen */
+    .site-footer {
+        padding: 4rem 1rem 2rem 1rem !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Social-Blöcke untereinander statt nebeneinander auf dem Handy */
+    .footer-social-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 60px !important; /* Mehr Abstand nach unten, da die Kreise oben sitzen */
+        margin-bottom: 20px !important;
+    }
+
+    /* Damit der Platzhalter für den Kreis auf dem Handy perfekt sitzt */
+    .social-group {
+        width: 100% !important;
+        max-width: 280px !important; /* Begrenzt die Breite auf Handys */
+        padding-top: 100px !important;
+    }
+
+    /* Den Button im Social-Group-Block auf Handybreite zwingen */
+    .social-group .large-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        font-size: 1.1rem !important; /* Etwas kleiner für Handys */
+        padding: 14px 20px !important;
+    }
+
+    /* Die schwebenden Kreise auf dem Handy etwas handlicher machen */
+    .personal-img-container {
+        width: 90px !important;
+        height: 90px !important;
+        top: -10px !important;
+    }
+}
 /* footer bereich */
 
 /* Popupbereich */
@@ -354,21 +392,29 @@ body {
     height: 100%;
     background-color: rgba(5, 5, 10, 0.95);
     color: #00ffff;
+    padding: 15px; /* Verhindert, dass das Modal direkt am Bildschirmrand klebt */
+    box-sizing: border-box;
 }
 
 #welcome-modal.hidden {
     display: none !important;
 }
 
-/* Inhalt zentrieren */
+/* Inhalt zentrieren und auf Smartphones begrenzen */
 #welcome-modal .modal-content {
-    text-align: center; /* Zentriert den gesamten Text im Modal */
+    text-align: center;
+    width: 100%;
+    max-width: 500px; /* Zwingt das Popup, auf großen Bildschirmen nicht zu breit zu werden */
+    max-height: 90vh; /* Lässt Platz nach oben/unten auf kleinen Handys */
+    overflow-y: auto; /* Macht den Inhalt scrollbar, falls der Bildschirm zu klein ist */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Profilbild perfekt zentrieren */
 #welcome-modal .modal-profile-pic {
     display: block;
-    margin: 0 auto 20px auto; /* Automatischer linker und rechter Abstand zentriert das Bild */
+    margin: 0 auto 20px auto;
     width: 130px;
     height: 130px;
     border-radius: 50%;
@@ -401,7 +447,7 @@ body {
     padding-top: 15px;
     max-height: 250px;
     overflow-y: auto;
-    text-align: center; /* Zentriert den Text im Klappbereich */
+    text-align: center;
     font-size: 0.9rem;
     padding-left: 10px;
     padding-right: 10px;
@@ -418,4 +464,11 @@ body {
     align-items: center;
     text-align: center;
     width: 100%;
+}
+
+/* Extra Media Query für sehr kleine Handys im Hochformat */
+@media (max-width: 600px) {
+    .consent-buttons {
+        flex-direction: column; /* Buttons untereinander auf dem Handy */
+    }
 }
