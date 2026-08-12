@@ -100,3 +100,130 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// Footer Bereich
+
+// Popup Bereich
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Alle Elemente zum Öffnen und Schließen finden
+    const openModalBtns = document.querySelectorAll('.open-modal');
+    const closeModalBtns = document.querySelectorAll('.close-modal');
+    const modals = document.querySelectorAll('.modal');
+    const modalContents = document.querySelectorAll('.modal-content');
+
+    // 2. Funktion zum Öffnen eines Modals
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Scrollen der Hauptseite verhindern
+        }
+    }
+
+    // 3. Funktion zum Schließen eines Modals
+    function closeModal(modal) {
+        if (modal) {
+            modal.classList.remove('open');
+            document.body.style.overflow = ''; // Scrollen wieder erlauben
+        }
+    }
+
+    // 4. Event-Listener für die Links im Footer
+    openModalBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Verhindert das Springen der Seite (href="#")
+            e.stopPropagation(); // Verhindert, dass der Klick nach oben durchreicht
+            const modalId = btn.getAttribute('data-modal-id');
+            openModal(modalId);
+        });
+    });
+
+    // 5. Event-Listener für die 'X'-Buttons
+    closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modalId = btn.getAttribute('data-modal-id');
+            const modal = document.getElementById(modalId);
+            closeModal(modal);
+        });
+    });
+
+    // 5.1 Klick in den Inhalt verhindern, dass das Popup schließt
+    modalContents.forEach(content => {
+        content.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+
+    // 6. Schließen, wenn man *außerhalb* des Modals klickt
+    window.addEventListener('click', (e) => {
+        modals.forEach(modal => {
+            if (e.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+
+    // 7. Schließen mit der ESC-Taste
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            modals.forEach(modal => {
+                if (modal.classList.contains('open')) {
+                    closeModal(modal);
+                }
+            });
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const welcomeModal = document.getElementById('welcome-modal');
+    const acceptBtn = document.getElementById('accept-consent-btn');
+    const subButtons = document.querySelectorAll('.open-modal-sub');
+
+    // 1. Prüfen, ob der Nutzer bereits akzeptiert hat
+    if (!localStorage.getItem('consentAccepted')) {
+        if (welcomeModal) {
+            welcomeModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    } else {
+        if (welcomeModal) {
+            welcomeModal.classList.add('hidden');
+        }
+    }
+
+    // 2. Klick auf "Verstanden & Akzeptieren"
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('consentAccepted', 'true');
+            if (welcomeModal) {
+                welcomeModal.classList.add('hidden');
+            }
+            document.body.style.overflow = '';
+        });
+    }
+
+    // 3. Impressum- und Datenschutz-Buttons umschalten
+    subButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = button.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            
+            // Alle anderen Sektionen erst mal schließen (optional, für saubere Ansicht)
+            document.querySelectorAll('.sub-text-section').forEach(section => {
+                if (section !== targetSection) {
+                    section.style.display = 'none';
+                }
+            });
+
+            // Geklickte Sektion umschalten (zeigen/verstecken)
+            if (targetSection) {
+                if (targetSection.style.display === 'block') {
+                    targetSection.style.display = 'none';
+                } else {
+                    targetSection.style.display = 'block';
+                }
+            }
+        });
+    });
+});

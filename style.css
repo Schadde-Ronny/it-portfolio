@@ -179,7 +179,7 @@ body {
 
 /* Der Untertitel (z.B. DCI) */
 .career-box .subtitle {
-    color: #888;
+    color: #00ffff;
     font-size: 0.9rem;
     margin-bottom: 20px;
     font-style: italic;
@@ -257,6 +257,7 @@ body {
 .has-dropdown.active .item-details {
     max-height: 250px; /* Hoch genug, damit alle Unterpunkte reinpassen */
 }
+
 /* Main sektion */
 
 /* footer Sektion */
@@ -325,4 +326,96 @@ body {
 
 .hidden-preview {
     display: none; /* Wird via JS bei Hover/Klick sichtbar gemacht */
+}
+.footer-bottom {
+    font-size: 0.9rem;
+    color: #00ffff;
+    margin-top: 20px;
+}
+/* footer bereich */
+
+/* Popupbereich */
+/* --- M O D A L  S T Y L E S --- */
+
+/* Der Hintergrund-Layer (dunkel und transparent) */
+/* --- W E L C O M E / C O N S E N T  M O D A L --- */
+
+/* --- W E L C O M E / C O N S E N T  M O D A L --- */
+
+#welcome-modal.consent-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 10, 0.95);
+    color: #00ffff;
+}
+
+#welcome-modal.hidden {
+    display: none !important;
+}
+
+/* Inhalt zentrieren */
+#welcome-modal .modal-content {
+    text-align: center; /* Zentriert den gesamten Text im Modal */
+}
+
+/* Profilbild perfekt zentrieren */
+#welcome-modal .modal-profile-pic {
+    display: block;
+    margin: 0 auto 20px auto; /* Automatischer linker und rechter Abstand zentriert das Bild */
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 4px solid #00ffff;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    object-fit: cover;
+    background-color: #16213E;
+}
+
+/* Layout für die beiden Buttons */
+.consent-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.consent-buttons .social-btn {
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+}
+
+/* Versteckte Abschnitte für Impressum/Datenschutz im Banner */
+.sub-text-section {
+    display: none;
+    margin-top: 15px;
+    border-top: 1px dashed #00ffff;
+    padding-top: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+    text-align: center; /* Zentriert den Text im Klappbereich */
+    font-size: 0.9rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+#accept-consent-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
