@@ -69,3 +69,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 console.log("TEST: JS-Datei wird geladen!");
+
+// Footer bereich
+document.addEventListener('DOMContentLoaded', () => {
+    const socialLinks = document.querySelectorAll('.social-btn');
+
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseover', () => {
+            // ID des Bildes holen, das zu diesem Link gehört
+            const imgId = link.getAttribute('data-img-id');
+            const hoverSrc = link.getAttribute('data-hover-src');
+            const imgElement = document.getElementById(imgId);
+
+            // Bildquelle austauschen
+            if (imgElement && hoverSrc) {
+                imgElement.src = hoverSrc;
+            }
+        });
+
+        link.addEventListener('mouseout', () => {
+            // ID des Bildes holen
+            const imgId = link.getAttribute('data-img-id');
+            const defaultSrc = link.getAttribute('data-default-src');
+            const imgElement = document.getElementById(imgId);
+
+            // Bildquelle auf Standard zurücksetzen
+            if (imgElement && defaultSrc) {
+                imgElement.src = defaultSrc;
+            }
+        });
+    });
+});
