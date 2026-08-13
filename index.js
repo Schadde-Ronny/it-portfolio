@@ -227,3 +227,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// für csv-datei
+
+const fs = require('fs');
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+const fileName = 'users.csv';
+const header = 'username,full_name,department,role,email,status\n';
+
+// Prüfen, ob die Datei existiert. Wenn nicht, erstellen und den Header reinschreiben.
+if (!fs.existsSync(fileName)) {
+    fs.writeFileSync(fileName, header);
+}
+
+// Benutzer im Terminal abfragen
+rl.question('Username: ', (username) => {
+    rl.question('Voller Name: ', (fullName) => {
+        rl.question('Abteilung: ', (department) => {
+            rl.question('Rolle: ', (role) => {
+                rl.question('E-Mail: ', (email) => {
+                    rl.question('Status (active/inactive): ', (status) => {
+                        
+                        // Die neue Zeile zusammenbauen
+                        const newLine = `${username},${fullName},${department},${role},${email},${status}\n`;
+
+                        // Zeile an die CSV anhängen
+                        fs.appendFileSync(fileName, newLine);
+
+                        console.log(`\nBenutzer ${username} wurde erfolgreich zur ${fileName} hinzugefügt!`);
+                        rl.close();
+                    });
+                });
+            });
+        });
+    });
+});
