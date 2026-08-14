@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-// Hier werden die neuen Daten aus deiner .env gelesen
+// auslesung neuer daten aus .env
 const CLIENT_ID = process.env.WCL_CLIENT_ID;
 const CLIENT_SECRET = process.env.WCL_CLIENT_SECRET;
 
@@ -35,7 +35,7 @@ app.get('/api/get-wcl-data', async (req, res) => {
         console.log("Hole V2 Access Token...");
         const token = await getAccessToken();
 
-        // Die GraphQL-Query für deinen Charakter
+        // Die GraphQL-Query für einen Charakter
 const graphqlQuery = {
             query: `
                 query {
