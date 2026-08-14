@@ -228,43 +228,85 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// für csv-datei
+// // für csv-datei
 
-const fs = require('fs');
-const readline = require('readline');
+// const fs = require('fs');
+// const readline = require('readline');
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+// const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
 
-const fileName = 'users.csv';
-const header = 'username,full_name,department,role,email,status\n';
+// const fileName = 'users.csv';
+// const header = 'username,full_name,department,role,email,status\n';
 
-// Prüfen, ob die Datei existiert. Wenn nicht, erstellen und den Header reinschreiben.
-if (!fs.existsSync(fileName)) {
-    fs.writeFileSync(fileName, header);
+// // Prüfen, ob die Datei existiert. Wenn nicht, erstellen und den Header reinschreiben.
+// if (!fs.existsSync(fileName)) {
+//     fs.writeFileSync(fileName, header);
+// }
+
+// // Benutzer im Terminal abfragen
+// rl.question('Username: ', (username) => {
+//     rl.question('Voller Name: ', (fullName) => {
+//         rl.question('Abteilung: ', (department) => {
+//             rl.question('Rolle: ', (role) => {
+//                 rl.question('E-Mail: ', (email) => {
+//                     rl.question('Status (active/inactive): ', (status) => {
+                        
+//                         // Die neue Zeile zusammenbauen
+//                         const newLine = `${username},${fullName},${department},${role},${email},${status}\n`;
+
+//                         // Zeile an die CSV anhängen
+//                         fs.appendFileSync(fileName, newLine);
+
+//                         console.log(`\nBenutzer ${username} wurde erfolgreich zur ${fileName} hinzugefügt!`);
+//                         rl.close();
+//                     });
+//                 });
+//             });
+//         });
+//     });
+// });
+
+
+
+async function ladeWclDaten() {
+    try {
+        const response = await fetch('http://localhost:3000/api/get-wcl-data');
+        const result = await response.json();
+        
+        console.log("Was kommt vom Server an?", result);
+
+        // Wir navigieren sicher durch das V2-GraphQL-Objekt
+        const char = result.data.characterData.character;
+
+        const container = document.getElementById('wcl-stats-container');
+        if (container) {
+            container.innerHTML = `
+                <p>Status: <span style="color: #00ffcc;">Verbunden</span></p>
+                <div class="wcl-card" style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 1px solid #00ffcc; display: inline-block; text-align: left; margin-top: 10px;">
+                    <h3 style="margin: 0 0 10px 0; color: #00ffcc;">${char.name}</h3>
+                    <p style="margin: 5px 0;"><strong>Server:</strong> ${char.server.name}</p>
+                    <p style="margin: 5px 0;"><strong>Level:</strong> ${char.level}</p>
+                    <p style="margin: 5px 0;"><strong>Klassen-ID:</strong> ${char.classID}</p>
+                </div>
+            `;
+        }
+    } catch (error) {
+        console.error("Fehler:", error);
+        const container = document.getElementById('wcl-stats-container');
+        if (container) {
+            container.innerHTML = `
+                <p>Status: <span style="color: red;">Fehler</span></p>
+                <p>Fehler beim Laden der Daten.</p>
+            `;
+        }
+    }
 }
 
-// Benutzer im Terminal abfragen
-rl.question('Username: ', (username) => {
-    rl.question('Voller Name: ', (fullName) => {
-        rl.question('Abteilung: ', (department) => {
-            rl.question('Rolle: ', (role) => {
-                rl.question('E-Mail: ', (email) => {
-                    rl.question('Status (active/inactive): ', (status) => {
-                        
-                        // Die neue Zeile zusammenbauen
-                        const newLine = `${username},${fullName},${department},${role},${email},${status}\n`;
+// Beim Laden der Seite ausführen
+ladeWclDaten();
 
-                        // Zeile an die CSV anhängen
-                        fs.appendFileSync(fileName, newLine);
 
-                        console.log(`\nBenutzer ${username} wurde erfolgreich zur ${fileName} hinzugefügt!`);
-                        rl.close();
-                    });
-                });
-            });
-        });
-    });
-});
+
