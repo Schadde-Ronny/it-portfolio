@@ -259,7 +259,17 @@ body {
 }
 
 /* Main sektion */
+/* WCL-Performance-style  */
+/* Spezifische Anpassungen für die WCL-Box (falls sie über die normale career-box hinausgeht) */
+/* .career-box.wcl-box {
+    /* Falls sie über die volle Breite gehen soll, kannst du hier z.B. grid-column oder width anpassen */
+/* } */
 
+#wcl-stats-container {
+    color: #00ffff;
+    text-align: left;
+    width: 100%;
+}
 /* footer Sektion */
 
 .site-footer {
@@ -373,12 +383,8 @@ body {
 /* footer bereich */
 
 /* Popupbereich */
-/* --- M O D A L  S T Y L E S --- */
 
 /* Der Hintergrund-Layer (dunkel und transparent) */
-/* --- W E L C O M E / C O N S E N T  M O D A L --- */
-
-/* --- W E L C O M E / C O N S E N T  M O D A L --- */
 
 #welcome-modal.consent-modal {
     display: flex;
