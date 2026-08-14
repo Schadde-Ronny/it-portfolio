@@ -278,7 +278,7 @@ async function ladeWclDaten() {
         
         console.log("Was kommt vom Server an?", result);
 
-        // Wir navigieren sicher durch das V2-GraphQL-Objekt
+        //sicheres Navigieren  durch das V2-GraphQL-Objekt
         const char = result.data.characterData.character;
 
         const container = document.getElementById('wcl-stats-container');
