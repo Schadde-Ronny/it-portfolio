@@ -74,7 +74,7 @@
     </article>
 
     <!-- 2. Box: Full-Stack -->
-    <article class="career-box">
+<article class="career-box fullstack-box">
         <div class="box-icon">
             <i class="fas fa-code"></i>
         </div>
@@ -82,6 +82,7 @@
         <p class="subtitle">Webentwickler (DCI)</p>
 
         <ul class="details-list">
+            <!-- Deine bestehenden Dropdowns -->
             <li class="has-dropdown">
                 <div class="item-header">Frontend-Entwicklung</div>
                 <div class="item-details">
@@ -112,9 +113,30 @@
                     </ul>
                 </div>
             </li>
+            
+            <!-- Der Button, der das Overlay öffnet -->
+            <li style="margin-top: 15px;">
+                <button type="button" class="neon-btn" id="openFutureSkills">
+                    <i class="fas fa-rocket"></i> Future Skills ansehen
+                </button>
+            </li>
         </ul>
-    </article>
 
+        <!-- Das Overlay-Panel (wird per JS über die Box gelegt) -->
+        <div id="future-skills-overlay" class="future-skills-overlay">
+            <div class="overlay-content">
+                <i class="fas fa-rocket"></i>
+                <h3>Future Skills</h3>
+                <p>Eigenstudium & kontinuierliches Lernen:</p>
+                <ul>
+                    <li>TypeScript & Next.js</li>
+                    <li>Erweiterte Backend-Konzepte</li>
+                    <li>Cloud Architecture</li>
+                </ul>
+                <button type="button" class="neon-btn close-btn" id="closeFutureSkills">Schließen</button>
+            </div>
+        </div>
+    </article>
     <!-- 3. Box: Systemadministrator -->
     <article class="career-box">
         <div class="box-icon">

@@ -100,6 +100,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// Future Skills Overlay Steuerung
+const openBtn = document.getElementById('openFutureSkills');
+const closeBtn = document.getElementById('closeFutureSkills');
+const overlay = document.getElementById('future-skills-overlay');
+
+if (openBtn && closeBtn && overlay) {
+    openBtn.addEventListener('click', () => {
+        overlay.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        overlay.classList.remove('active');
+    });
+}
 // Footer Bereich
 
 // Popup Bereich

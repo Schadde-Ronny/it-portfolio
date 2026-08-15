@@ -72,3 +72,11 @@ const graphqlQuery = {
 });
 
 app.listen(PORT, () => console.log(`V2 Server läuft auf http://localhost:${PORT}`));
+
+// Eigenstudium neue Programmiersprachen
+app.get('/api/future-skills', (req, res) => {
+    res.json({
+        status: "success",
+        skills: ["TypeScript", "Next.js", "Rust (Grundlagen)"]
+    });
+});

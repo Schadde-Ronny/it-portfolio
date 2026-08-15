@@ -1,28 +1,33 @@
+/* ==========================================
+   1. GLOBAL & BODY
+   ========================================== */
 body {
     background-color: #0b131d; /* Ein sehr dunkles Tech-Blau/Grau als Basis */
-    /* Optional: Falls du ein Hintergrundmuster hast, kommt es hier rein */
+    color: #fff;
+    font-size: 1.05rem;
 }
 
 
-/*Headerbereich (docToggleArea) öffnen / schließen */
-
+/* ==========================================
+   2. HEADER-BEREICH (docToggleArea & Profil)
+   ========================================== */
 .site-header {
-    /* Gleicher transparenter Türkis-Hintergrund und Glas-Effekt wie im Main-Bereich */
     background-color: rgba(0, 255, 255, 0.05); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    
-    /* Neon-Rahmen und Schatten */
     border: 1px solid rgba(0, 255, 255, 0.6);
     box-shadow: 
         0 0 15px rgba(0, 255, 255, 0.3),
         inset 0 0 15px rgba(0, 255, 255, 0.1);
-        
     border-radius: 15px;
     padding: 30px;
     text-align: center;
     max-width: 1200px;
-    margin: 20px auto; /* Zentriert mit etwas Abstand zum Rand */
+    margin: 20px auto;
+}
+
+.site-header h3 {
+    font-size: 1.7rem;
 }
 
 .profile-container {
@@ -34,7 +39,7 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    object-fit: cover; /* Sorgt dafür, dass das Bild nicht verzerrt wird */
+    object-fit: cover;
     border: 2px solid #00ffff;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -42,11 +47,10 @@ body {
 
 .profile-pic:hover {
     box-shadow: 0 0 20px #00ffff;
-    transform: scale(1.05); /* Zieht sich beim Hover minimal größer */
+    transform: scale(1.05);
 }
 
 .header-interactive-area {
-    /* Den alten dunklen Kasten-Hintergrund durch den Glas-Look ersetzen oder anpassen */
     background: rgba(0, 0, 0, 0.3);
     padding: 15px;
     border-radius: 10px;
@@ -57,137 +61,103 @@ body {
     transition: all 0.3s ease;
 }
 
-/* HOVER-EFFEKT: Leuchtet auf und öffnet sich leicht, solange die Maus drüber ist */
-.header-interactive-area:hover {
-    border-color: #00ffff;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-}
+.header-interactive-area:hover,
 .header-interactive-area.active {
     border-color: #00ffff;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
 
-.header-interactive-area:hover .trigger-label {
+.header-interactive-area:hover .trigger-label,
+.header-interactive-area.active .trigger-label {
     color: #00ffff;
 }
 
 .trigger-label {
     color: #00ffff;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
-/* Der Container passt sich nun automatisch an den Inhalt an */
 .hidden-docs-container {
     display: flex;
     justify-content: center;
     gap: 15px;
-    flex-wrap: wrap; /* Wichtig für Smartphones: Buttons springen bei Platzmangel in die nächste Zeile */
+    flex-wrap: wrap;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
 }
 
-/* Wenn geöffnet, erhöhen wir den Wert für max-height deutlich, 
-   damit auch auf kleinen Bildschirmen nichts abgeschnitten wird */
 .header-interactive-area:hover .hidden-docs-container,
 .header-interactive-area.active .hidden-docs-container {
-    max-height: 300px; /* Groß genug gemacht, damit alle drei Buttons locker reinpassen */
+    max-height: 300px;
     opacity: 1;
     margin-top: 15px;
 }
 
-/* Wenn per Klick eingerastet (aktiv) */
-.header-interactive-area.active {
-    border-color: #00ffff;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-}
 
-.header-interactive-area.active .trigger-label {
-    color: #00ffff;
-}
-
-/* Neon-Buttons */
-.neon-btn {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #00ffff;
-    padding: 10px 15px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.85rem;
-    transition: all 0.3s ease;
-}
-
-.neon-btn:hover {
-    background-color: #00ffff;
-    color: #0f111a;
-    box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
-}
-/*Headerbereich (docToggleArea) öffnen / schließen */
-
-/* Main Bereich */
-/* Grund-Styling für den Main-Bereich */
+/* ==========================================
+   3. MAIN-BEREICH & KARRIERE-BOXEN
+   ========================================== */
 .main-content {
-    display: flex; /* Ordnet die Kinder (Boxen) nebeneinander an */
-    justify-content: center; /* Zentriert die Boxen auf der Seite */
-    gap: 30px; /* Abstand zwischen den Boxen */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
     padding: 50px 20px;
-    flex-wrap: wrap; /* Damit sie auf Handys untereinander rutschen */
-    max-width: 1200px; /* Begrenzt die Breite auf großen Bildschirmen */
-    margin: 0 auto; /* Zentriert den gesamten Container */
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Styling für jede einzelne Karriere-Box */
 .career-box {
-    flex: 1; /* Jede Box nimmt gleich viel Platz ein */
-    min-width: 300px; /* Mindestbreite, damit sie auf kleinen Screens nicht zu schmal werden */
-    background-color: rgba(20, 30, 48, 0.7); /* Dunkler, leicht transparenter Hintergrund */
-    border: 2px solid #00ffff; /* Neon-Rahmen */
+    flex: 1;
+    min-width: 300px;
+    background-color: rgba(0, 255, 255, 0.05); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.6);
+    box-shadow: 
+        0 0 15px rgba(0, 255, 255, 0.3),
+        inset 0 0 15px rgba(0, 255, 255, 0.1);
     border-radius: 15px;
     padding: 30px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Für Hover-Effekte */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Hover-Effekt: Die Box hebt sich leicht ab */
 .career-box:hover {
-    transform: translateY(-10px); /* Bewegt die Box leicht nach oben */
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3); /* Stärkerer Neon-Schatten */
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
 }
 
-/* Styling für das Icon in der Box */
 .box-icon {
     font-size: 3rem;
     color: #00ffff;
     margin-bottom: 20px;
 }
 
-/* Die Überschriften in den Boxen */
 .career-box h3 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Der Untertitel (z.B. DCI) */
 .career-box .subtitle {
     color: #00ffff;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     margin-bottom: 20px;
     font-style: italic;
 }
 
-/* Die Liste (Stichpunkte) */
+/* Listen in den Boxen */
 .details-list {
-    list-style: none; /* Entfernt die Standard-Listenpunkte */
+    list-style: none;
     padding: 0;
     text-align: left;
     width: 100%;
@@ -200,9 +170,9 @@ body {
     position: relative;
     padding-left: 25px;
     color: #00ffff;
+    font-size: 1.05rem;
 }
 
-/* Eigene Listenpunkte im Neon-Style */
 .details-list > li::before {
     content: "›";
     position: absolute;
@@ -210,17 +180,21 @@ body {
     color: #00ffff;
     font-weight: bold;
 }
+
+/* Dropdowns in den Boxen */
 .item-header {
     cursor: pointer;
     color: #00ffff;
+    font-size: 1.15rem;
+    font-weight: bold;
 }
 
 .item-details {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    background: rgba(0, 0, 0, 0.5); /* Deutlich dunklerer Hintergrund */
-    border-left: 2px solid #00ffff; /* Kleine Neon-Markierung an der Seite */
+    background: rgba(0, 0, 0, 0.5);
+    border-left: 2px solid #00ffff;
     border-radius: 0 4px 4px 0;
     margin-top: 8px;
 }
@@ -228,59 +202,159 @@ body {
 .item-details ul {
     list-style: none;
     padding: 10px 15px;
-    font-size: 0.85rem;
-    color: #00ffff; /* Klarer weißer Text oder #00ffff für Neon */
 }
 
 .item-details li {
-    padding: 4px 0;
-    color: #00ffff; /* Die Unterpunkte in hellem Neon-Türkis absetzen */
+    padding: 6px 0;
+    color: #00ffff;
+    font-size: 1.05rem;
 }
-.career-box {
-    /* 1. Extrem transparentes Türkis (der letzte Wert '0.05' macht es fast unsichtbar) */
-    background-color: rgba(0, 255, 255, 0.05); 
-    
-    /* 2. Der Glas-Effekt: Verwischt alles, was hinter der Box liegt */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Wichtig für Safari/Apple-Browser */
-    
-    /* 3. Der scharfe Neon-Rahmen und das Leuchten */
-    border: 1px solid rgba(0, 255, 255, 0.6);
-    box-shadow: 
-        0 0 15px rgba(0, 255, 255, 0.3),
-        inset 0 0 15px rgba(0, 255, 255, 0.1);
-        
-    border-radius: 15px;
-    padding: 30px;
-}
-/* Wenn das Listenelement die Klasse .active bekommt, klappt das Menü auf */
+
 .has-dropdown.active .item-details {
-    max-height: 250px; /* Hoch genug, damit alle Unterpunkte reinpassen */
+    max-height: 250px;
 }
 
-/* Main sektion */
-/* WCL-Performance-style  */
-/* Spezifische Anpassungen für die WCL-Box (falls sie über die normale career-box hinausgeht) */
-/* .career-box.wcl-box {
-    /* Falls sie über die volle Breite gehen soll, kannst du hier z.B. grid-column oder width anpassen */
-/* } */
 
+/* ==========================================
+   4. FUTURE SKILLS OVERLAY
+   ========================================== */
+.fullstack-box {
+    position: relative;
+    overflow: hidden; 
+}
+
+.future-skills-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0b131d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.future-skills-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-content {
+    text-align: center;
+    color: #00ffff;
+    width: 100%;
+}
+
+.overlay-content i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #00ffff;
+}
+
+.overlay-content h3 {
+    margin-bottom: 8px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+}
+
+.overlay-content p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #00ffff;
+    font-style: italic;
+}
+
+.overlay-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.overlay-content ul li {
+    padding: 8px 0;
+    color: #00ffff;
+    border-bottom: 1px dashed rgba(0, 255, 255, 0.2);
+    position: relative;
+    padding-left: 22px;
+    font-size: 1.05rem;
+}
+
+.overlay-content ul li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: #00ffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+/* ==========================================
+   5. STATISTIKEN & WCL-BEREICH
+   ========================================== */
 #wcl-stats-container {
     color: #00ffff;
     text-align: left;
     width: 100%;
+    font-size: 1.05rem;
 }
-/* footer Sektion */
 
+
+/* ==========================================
+   6. BUTTONS & NEON-ELEMENTE
+   ========================================== */
+.neon-btn {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #00ffff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.neon-btn:hover {
+    background-color: #00ffff;
+    color: #0f111a;
+    box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+}
+
+.large-btn {
+    padding: 18px 35px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+}
+
+
+/* ==========================================
+   7. FOOTER-BEREICH
+   ========================================== */
 .site-footer {
     text-align: center;
-    padding: 6rem 0 2rem; /* Oben mehr Platz für die Kreise schaffen */
+    padding: 6rem 0 2rem;
 }
 
 .footer-social-wrapper {
     display: flex;
     justify-content: center;
-    gap: 40px; /* Mehr Abstand zwischen den Blöcken */
+    gap: 40px;
     margin-bottom: 40px;
 }
 
@@ -289,15 +363,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 130px; /* Platzhalter nach oben vergrößern */
+    padding-top: 130px;
 }
 
 .personal-img-container {
     position: absolute;
-    top: -20px; /* Den Kreis noch weiter nach oben aus dem Button herausziehen */
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 110px; /* Optional: Tick kleiner machen, falls sie dir zu wuchtig sind (z.B. 100px oder 110px) */
+    width: 110px;
     height: 110px;
     border-radius: 50%;
     overflow: hidden;
@@ -310,82 +384,33 @@ body {
 .personal-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Bild soll den Kreis ausfüllen */
+    object-fit: cover;
     transition: opacity 0.3s ease;
 }
 
-/* Der Hover-Effekt, der das Bild austauscht */
 .social-group:hover .personal-img-container {
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
 }
 
-.large-btn {
-    padding: 18px 35px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 1; /* Button liegt über dem Bild-Container */
-}
-
 .footer-image-display {
     margin: 20px 0;
-    min-height: 100px; /* Platzhalter, damit nichts springt */
+    min-height: 100px;
 }
 
 .hidden-preview {
-    display: none; /* Wird via JS bei Hover/Klick sichtbar gemacht */
+    display: none;
 }
+
 .footer-bottom {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     color: #00ffff;
     margin-top: 20px;
 }
-@media (max-width: 600px) {
-    /* Den Footer-Bereich vor dem Überlaufen schützen */
-    .site-footer {
-        padding: 4rem 1rem 2rem 1rem !important;
-        overflow-x: hidden !important;
-    }
 
-    /* Social-Blöcke untereinander statt nebeneinander auf dem Handy */
-    .footer-social-wrapper {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 60px !important; /* Mehr Abstand nach unten, da die Kreise oben sitzen */
-        margin-bottom: 20px !important;
-    }
 
-    /* Damit der Platzhalter für den Kreis auf dem Handy perfekt sitzt */
-    .social-group {
-        width: 100% !important;
-        max-width: 280px !important; /* Begrenzt die Breite auf Handys */
-        padding-top: 100px !important;
-    }
-
-    /* Den Button im Social-Group-Block auf Handybreite zwingen */
-    .social-group .large-btn {
-        width: 100% !important;
-        justify-content: center !important;
-        box-sizing: border-box !important;
-        font-size: 1.1rem !important; /* Etwas kleiner für Handys */
-        padding: 14px 20px !important;
-    }
-
-    /* Die schwebenden Kreise auf dem Handy etwas handlicher machen */
-    .personal-img-container {
-        width: 90px !important;
-        height: 90px !important;
-        top: -10px !important;
-    }
-}
-/* footer bereich */
-
-/* Popupbereich */
-
-/* Der Hintergrund-Layer (dunkel und transparent) */
-
+/* ==========================================
+   8. MODAL / POPUP
+   ========================================== */
 #welcome-modal.consent-modal {
     display: flex;
     align-items: center;
@@ -398,7 +423,7 @@ body {
     height: 100%;
     background-color: rgba(5, 5, 10, 0.95);
     color: #00ffff;
-    padding: 15px; /* Verhindert, dass das Modal direkt am Bildschirmrand klebt */
+    padding: 15px;
     box-sizing: border-box;
 }
 
@@ -406,18 +431,16 @@ body {
     display: none !important;
 }
 
-/* Inhalt zentrieren und auf Smartphones begrenzen */
 #welcome-modal .modal-content {
     text-align: center;
     width: 100%;
-    max-width: 500px; /* Zwingt das Popup, auf großen Bildschirmen nicht zu breit zu werden */
-    max-height: 90vh; /* Lässt Platz nach oben/unten auf kleinen Handys */
-    overflow-y: auto; /* Macht den Inhalt scrollbar, falls der Bildschirm zu klein ist */
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* Profilbild perfekt zentrieren */
 #welcome-modal .modal-profile-pic {
     display: block;
     margin: 0 auto 20px auto;
@@ -430,7 +453,6 @@ body {
     background-color: #16213E;
 }
 
-/* Layout für die beiden Buttons */
 .consent-buttons {
     display: flex;
     gap: 15px;
@@ -441,11 +463,10 @@ body {
 .consent-buttons .social-btn {
     flex: 1;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 10px 15px;
 }
 
-/* Versteckte Abschnitte für Impressum/Datenschutz im Banner */
 .sub-text-section {
     display: none;
     margin-top: 15px;
@@ -454,7 +475,7 @@ body {
     max-height: 250px;
     overflow-y: auto;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -472,9 +493,44 @@ body {
     width: 100%;
 }
 
-/* Extra Media Query für sehr kleine Handys im Hochformat */
+
+/* ==========================================
+   9. MEDIA QUERIES (RESPONSIVE)
+   ========================================== */
 @media (max-width: 600px) {
+    .site-footer {
+        padding: 4rem 1rem 2rem 1rem !important;
+        overflow-x: hidden !important;
+    }
+
+    .footer-social-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 60px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .social-group {
+        width: 100% !important;
+        max-width: 280px !important;
+        padding-top: 100px !important;
+    }
+
+    .social-group .large-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        font-size: 1.1rem !important;
+        padding: 14px 20px !important;
+    }
+
+    .personal-img-container {
+        width: 90px !important;
+        height: 90px !important;
+        top: -10px !important;
+    }
+
     .consent-buttons {
-        flex-direction: column; /* Buttons untereinander auf dem Handy */
+        flex-direction: column;
     }
 }
